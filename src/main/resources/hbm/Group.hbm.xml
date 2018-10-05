@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.maktab.model">
+
+    <class name="Group" table="GROUPS">
+        <id name="id" >
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="string" not-null="true" unique="true" />
+        
+        <set name="members" table="GROUP_MEMBERS" >
+        	<key column="groupId" />
+        	<many-to-many class="Person" column="memberId" />
+        </set>
+    </class>
+
+</hibernate-mapping>
