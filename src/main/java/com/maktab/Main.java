@@ -5,14 +5,17 @@ import com.maktab.model.CourseGroup;
 import com.maktab.model.Student;
 import org.hibernate.Session;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 public class Main {
 
+    public static Session session;
+
     public static void main(String[] args) {
 
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
+        session = HibernateUtil.getSessionFactory().openSession();
+
 
         /**
          * Create Student & CourseGroup & Course
@@ -53,5 +56,20 @@ public class Main {
         session.close();
         HibernateUtil.shutdown();
 
+    }
+
+    public static void register(String courseCode, String groupCode, String studentCode) {
+        session.beginTransaction();
+        String hql = "FROM CourseGroup WHERE code = " + studentCode;
+        Object obj = session.createQuery(hql).uniqueResult();
+        if (obj != null) {
+            System.out.println("Con not Insert Student in CourstGroup");
+        } else {
+            System.out.println("Inserted to CourseGroup.");
+        }
+
+
+        session.close();
+        HibernateUtil.shutdown();
     }
 }

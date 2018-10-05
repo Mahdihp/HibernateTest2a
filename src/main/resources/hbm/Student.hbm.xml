@@ -7,17 +7,16 @@
 <hibernate-mapping package="com.maktab.model">
 
     <class name="Student" table="STUDENTS">
-        <id name="id" >
+        <id name="id">
             <generator class="increment"/>
         </id>
-        <property name="code" type="string" not-null="true" unique="true" />
-        <property name="name" type="string" not-null="true" unique="true" />
+        <property name="code" type="string" not-null="true" unique="true"/>
+        <property name="name" type="string" not-null="true" unique="true"/>
 
 
-
-        <set name="courseGroups" table="Student_GROUP_COURSE" inverse="true" >
-        	<key column="studentId" />
-        	<many-to-many class="CourseGroup" column="groupId" />
+        <set name="courseGroups" table="Student_GROUP_COURSE" inverse="true">
+            <key column="studentId"/>
+            <many-to-many class="CourseGroup" column="groupId"/>
         </set>
     </class>
 

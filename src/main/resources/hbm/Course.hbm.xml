@@ -6,7 +6,7 @@
 
 <hibernate-mapping package="com.maktab.model">
 
-    <class name="com.maktab.model.Course" table="COURSES">
+    <class name="Course" table="COURSES">
         <id name="id">
             <generator class="increment"/>
         </id>

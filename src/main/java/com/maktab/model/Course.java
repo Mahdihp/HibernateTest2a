@@ -10,7 +10,6 @@ public class Course {
 
 	private String code;
 	private String name;
-
 	private Set<CourseGroup> courseGroups;
 
 	public Course(String code, String name) {
