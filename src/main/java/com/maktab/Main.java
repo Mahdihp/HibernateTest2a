@@ -15,19 +15,20 @@ public class Main {
     public static void main(String[] args) {
 
         session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
 
 
         /**
          * Create Student & CourseGroup & Course
          */
-//        Student student=new Student("1","ali Alavi");
-//        session.save(student);
-//
-//        Course book=new Course("1","Java EE 10");
-//        session.save(book);
-//
-//        CourseGroup group =new CourseGroup(1,5,book);
-//        session.save(group);
+        Student student=new Student("1","ali Alavi");
+        session.save(student);
+
+        Course book=new Course("1","Java EE 10");
+        session.save(book);
+
+        CourseGroup group =new CourseGroup(1,5,book);
+        session.save(group);
 //
 //
 //        CourseGroup  g1  = session.get(CourseGroup.class,1L);
