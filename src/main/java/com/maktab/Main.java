@@ -1,13 +1,10 @@
 package com.maktab;
 
-import com.maktab.model.Book;
-import com.maktab.model.Group;
-import com.maktab.model.Person;
+import com.maktab.model.Course;
+import com.maktab.model.CourseGroup;
+import com.maktab.model.Student;
 import org.hibernate.Session;
-import org.hibernate.query.Query;
-import sun.nio.cs.ext.GB18030;
 
-import javax.persistence.Persistence;
 import java.util.List;
 
 public class Main {
@@ -18,38 +15,43 @@ public class Main {
         session.beginTransaction();
 
         /**
-         * Create Person & Group & Book
+         * Create Student & CourseGroup & Course
          */
-//        Person person=new Person("ali Alavi");
-//        session.save(person);
+//        Student student=new Student("1","ali Alavi");
+//        session.save(student);
 //
-//        Group group =new Group("group1");
+//        Course book=new Course("1","Java EE 10");
+//        session.save(book);
+//
+//        CourseGroup group =new CourseGroup(1,5,book);
 //        session.save(group);
 //
-//        Book book=new Book("Java EE 10",person);
-//        session.save(book);
-
-//        Group  g1  = session.get(Group.class,1L);
-//        Person p1 = session.get(Person.class,1L);
-//        g1.getMembers().add(p1);
-//        session.save(g1);
+//
+//        CourseGroup  g1  = session.get(CourseGroup.class,1L);
+//        Student p1 = session.get(Student.class,1L);
+//        g1.getStudents().add(p1);
+//        session.update(g1);
 
         /**
-         * Read  Person & Group & Book
+         * Read  Student & CourseGroup & Course
          */
-        List<Person> result1 = (List<Person>) session.createQuery("from " + Person.REF).list();
-        for (Person p : result1)
-            System.out.println(p);
+//        List<Student> result1 = (List<Student>) session.createQuery("from " + Student.REF).list();
+//        for (Student p : result1)
+//            System.out.println(p);
 //
-//        List<Group> result2 = (List<Group>) session.createQuery("from " + Group.REF).list();
-//        for (Group p : result2)
+//        List<CourseGroup> result2 = (List<CourseGroup>) session.createQuery("from " + CourseGroup.REF).list();
+//        for (CourseGroup p : result2)
 //            System.out.println(p);
 //
 //
-//        List<Book> result3 = (List<Book>) session.createQuery("from " + Book.REF).list();
-//        for (Book p : result3)
+//        List<Course> result3 = (List<Course>) session.createQuery("from " + Course.REF).list();
+//        for (Course p : result3)
 //            System.out.println(p);
         session.getTransaction().commit();
+
+
+        session.close();
+        HibernateUtil.shutdown();
 
     }
 }

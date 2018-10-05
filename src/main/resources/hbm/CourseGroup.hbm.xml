@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.maktab.model">
+
+    <class name="CourseGroup" table="COURSEGROUPS">
+
+        <id name="id" >
+            <generator class="increment"/>
+        </id>
+
+        <property name="number" type="integer" not-null="true"  />
+        <property name="capecity" type="integer" not-null="true" />
+
+        <set name="students" table="Student_GROUP_COURSE" >
+        	<key column="groupId" />
+        	<many-to-many class="Student" column="studentId" />
+        </set>
+
+        <many-to-one name="course" class="Course"
+                     column="courseId" not-null="true" unique="false" />
+
+    </class>
+
+</hibernate-mapping>

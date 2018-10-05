@@ -30,9 +30,9 @@
 
 
         <!-- Mapping files -->
-        <mapping resource="hbm/Person.hbm.xml"/>
-        <mapping resource="hbm/Book.hbm.xml"/>
-        <mapping resource="hbm/Group.hbm.xml"/>
+        <mapping resource="hbm/Student.hbm.xml"/>
+        <mapping resource="hbm/Course.hbm.xml"/>
+        <mapping resource="hbm/CourseGroup.hbm.xml"/>
 
     </session-factory>
 

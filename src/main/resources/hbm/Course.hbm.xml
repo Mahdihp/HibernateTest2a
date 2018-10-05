@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.maktab.model">
+
+    <class name="com.maktab.model.Course" table="COURSES">
+        <id name="id">
+            <generator class="increment"/>
+        </id>
+        <property name="code" type="string" not-null="true" unique="true"/>
+        <property name="name" type="string" not-null="true" unique="true"/>
+
+        <set name="courseGroups" inverse="true">
+            <key column="courseId"/>
+            <one-to-many class="CourseGroup"/>
+        </set>
+
+    </class>
+
+</hibernate-mapping>
