@@ -21,20 +21,20 @@ public class Main {
         /**
          * Create Student & CourseGroup & Course
          */
-        Student student=new Student("1","ali Alavi");
-        session.save(student);
-
-        Course book=new Course("1","Java EE 10");
-        session.save(book);
-
-        CourseGroup group =new CourseGroup(1,5,book);
-        session.save(group);
+//        Student student=new Student("1","ali Alavi");
+//        session.save(student);
 //
+//        Course book=new Course("1","Java EE 10");
+//        session.save(book);
 //
-//        CourseGroup  g1  = session.get(CourseGroup.class,1L);
-//        Student p1 = session.get(Student.class,1L);
-//        g1.getStudents().add(p1);
-//        session.update(g1);
+//        CourseGroup group =new CourseGroup(1,5,book);
+//        session.save(group);
+
+//
+        CourseGroup  g1  = session.get(CourseGroup.class,1L);
+        Student p1 = session.get(Student.class,1L);
+        g1.getStudents().add(p1);
+        session.update(g1);
 
         /**
          * Read  Student & CourseGroup & Course
@@ -51,9 +51,10 @@ public class Main {
 //        List<Course> result3 = (List<Course>) session.createQuery("from " + Course.REF).list();
 //        for (Course p : result3)
 //            System.out.println(p);
+
+        // register("1","1","1");
+
         session.getTransaction().commit();
-
-
         session.close();
         HibernateUtil.shutdown();
 
@@ -61,11 +62,12 @@ public class Main {
 
     public static void register(String courseCode, String groupCode, String studentCode) {
         session.beginTransaction();
-        String hql = "FROM CourseGroup WHERE code = " + studentCode;
+        String hql = "FROM CourseGroup WHERE id = " + studentCode;
         Object obj = session.createQuery(hql).uniqueResult();
         if (obj != null) {
             System.out.println("Con not Insert Student in CourstGroup");
         } else {
+//            session.save(new Course())
             System.out.println("Inserted to CourseGroup.");
         }
 

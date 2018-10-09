@@ -14,7 +14,7 @@
         <property name="name" type="string" not-null="true" unique="true"/>
 
 
-        <set name="courseGroups" table="Student_GROUP_COURSE" inverse="true">
+        <set name="courseGroups" table="STUDENT_GROUP_COURSE" inverse="true">
             <key column="studentId"/>
             <many-to-many class="CourseGroup" column="groupId"/>
         </set>

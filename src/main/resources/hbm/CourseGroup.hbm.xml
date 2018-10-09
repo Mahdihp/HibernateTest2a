@@ -15,7 +15,7 @@
         <property name="number" type="integer" not-null="true"/>
         <property name="capecity" type="integer" not-null="true"/>
 
-        <set name="students" table="Student_GROUP_COURSE">
+        <set name="students" table="STUDENT_GROUP_COURSE">
             <key column="groupId"/>
             <many-to-many class="Student" column="studentId"/>
         </set>
